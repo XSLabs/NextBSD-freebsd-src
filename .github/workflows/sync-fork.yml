@@ -44,7 +44,7 @@ jobs:
       - name: Trigger toolchain rebuild
         if: steps.after.outputs.changed == 'true'
         run: |
-          gh api repos/nextbsd-redux/nextbsd-kernel-toolchain/dispatches \
+          gh api repos/nextbsd/nextbsd-kernel-toolchain/dispatches \
             -f event_type=upstream-updated \
             -f "client_payload[sha]=${{ steps.after.outputs.sha }}" \
             -f "client_payload[branch]=releng/15.1"
